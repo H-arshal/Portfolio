@@ -21,7 +21,7 @@ const MyResume = () => {
         </svg>],
         ["Instagram", "https://www.instagram.com/harshal.moon", <FaInstagram />],
         ["Facebook", "https://facebook.com", <FaFacebook />],
-        ["Twitter", "https://twitter.com", <FaTwitter />],
+        ["Twitter", "https://x.com/harshal_moon08?t=cn79ZZKS-gnqDPR5O9E4rA&s=08", <FaTwitter />],
     ]; // Example links
 
     return (

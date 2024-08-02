@@ -1,21 +1,13 @@
 import {Route,BrowserRouter} from 'react-router-dom'
 import Home from './pages/Home';
-import Contact from './pages/Contact';
-import Projects from './pages/Projects';
-import courses from './pages/Courses';
-import Certificate from './pages/Certificates';
 import './stylesheet/home.css';
-import ContactMe from './components/ContactMe';
+import PageNotFound from './pages/PageNotFound';
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
         <Route path='/' exact component={Home}/>
-        <Route path='/contact' exact component={Contact}/>
-        <Route path='/courses' exact component={courses}/>
-        <Route path='/projects' exact component={Projects}/>
-        <Route path='/contactMe' exact component={ContactMe}/>
-        <Route path='/certificates' exact component={Certificate}/>
+        <Route path='/emptyPage' exact component={PageNotFound}/>
       </BrowserRouter>
     </div>
   );
