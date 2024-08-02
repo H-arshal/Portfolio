@@ -23,7 +23,7 @@ const NotFoundPage = () => {
       <div className="text">
         <h1>404</h1>
         <h3>Sorry we cant find what you are looking for 'cuz its so dark in here</h3>
-        <h2></h2>
+  
       </div>
       <div className="torch" ref={torchRef}></div>
     </div>
