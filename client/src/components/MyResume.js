@@ -1,8 +1,7 @@
 import React from 'react';
 import imgURL from '../images/Harshal.png';
 import { FaFacebook, FaTwitter, FaLinkedin, FaInstagram, FaGithub } from 'react-icons/fa';
-import PdfViewer from './MyPdfViewer';
-// import IconBrandLeetcode  from '@tabler/icons-react';
+// import PdfViewer from './MyPdfViewer';
 
 const MyResume = () => {
 
@@ -49,7 +48,7 @@ const MyResume = () => {
                 </div>
             </div>
             <div className="resume-pdf">
-                <PdfViewer />
+                {/* <PdfViewer /> */}
             </div>
         </div>
     );
