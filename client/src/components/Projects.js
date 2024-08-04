@@ -117,8 +117,8 @@ function createSquare() {
   square.style.height = 10 + size + 'px';
   square.style.background = bg;
   square.style.position = 'absolute';
-  square.style.top = Math.random() * 100 + '%';
-  square.style.left = Math.random() * 100 + '%';
+  square.style.top = Math.random() * 90 + '%';
+  square.style.left = Math.random() * 97 + '%';
   mainContainer.appendChild(square);
   setTimeout(() => {
     square.remove();
