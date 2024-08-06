@@ -4,10 +4,11 @@ h1 {
 Element:hover {
   cursor: pointer;
 }
-x
+.home{
+  background-image: url(../images/introBG.svg);
+}
 /* HOMEPAGE */
 .introduction {
-  background-image: url('../images/introBG.svg');
   height: 100vh;
   width: 100%;
   background-position: 100% 100%;
@@ -156,6 +157,7 @@ x
   padding: 5px;
 }
 .resume-section .resume-pdf {
+
   margin-left: 10px;
   width: 100%;
   max-width: 87rem;
@@ -163,6 +165,7 @@ x
   color: black;
   z-index: 100;
 }
+
 
 /* COUROSEL */
 .courosel-parent {
@@ -750,11 +753,12 @@ video {
 }
 
 @media (max-width: 1200px) {
+
   .resume-section {
     flex-direction: column;
     align-items: center;
   }
-
+  
   .resume-section .resume-my-details {
     border-right: none;
     border-bottom: 2px solid white;
@@ -769,7 +773,7 @@ video {
   }
 }
 @media (max-width: 768px) {
-  .resume-section .resume-my-details {
+  .resume-section .resume-my-details{
     border-right: none;
     border-bottom: 2px solid white;
   }
@@ -800,7 +804,7 @@ video {
   }
 }
 @media (max-width: 480px) {
-  .resume-section .resume-my-details {
+  .resume-section .resume-my-details{
     border-right: none;
     border-bottom: 2px solid white;
   }
@@ -808,12 +812,12 @@ video {
     width: 150px;
     height: 150px;
   }
-
+  
   .resume-section .resume-my-details .sub-social-links {
     font-size: 0.8rem;
     padding: 4px 8px;
   }
-
+  
   .resume-section .resume-pdf {
     padding: 5px;
   }
@@ -821,7 +825,10 @@ video {
     font-size: 14px; /* Adjust legend font size on very small screens */
     padding: 8px; /* Reduce padding on smaller screens */
   }
-}
+} 
+
+
+
 
 .not-found-container {
   height: 97vh;
@@ -840,8 +847,7 @@ video {
   margin-top: -200px;
   font-size: 15em;
   text-align: center;
-  text-shadow: -5px 5px 0px rgba(0, 0, 0, 0.7),
-    -10px 10px 0px rgba(0, 0, 0, 0.4), -15px 15px 0px rgba(0, 0, 0, 0.2);
+  text-shadow: -5px 5px 0px rgba(0, 0, 0, 0.7), -10px 10px 0px rgba(0, 0, 0, 0.4), -15px 15px 0px rgba(0, 0, 0, 0.2);
   font-family: monospace;
   font-weight: bold;
 }
@@ -875,6 +881,7 @@ video {
   position: fixed;
   background: rgba(0, 0, 0, 0.3);
   /* background: radial-gradient(circle, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 100%); */
+
 }
 
 .not-found-container .torch:after {
@@ -887,4 +894,5 @@ video {
   left: 0;
   box-shadow: inset 0 0 40px 2px #000, 0 0 20px 4px rgba(13, 13, 10, 0.2);
   /* background: radial-gradient(circle, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.502) 50%, rgb(0, 0, 0) 100%); */
+
 }
