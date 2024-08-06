@@ -5,7 +5,7 @@ import pdfUrl from '../resume/Resume.pdf';
 
 const PdfViewer = () => {
   return (
-    <div style={{ height: '750px' }}>
+    <div style={{ height: '1110px' }}>
       <Worker workerUrl="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js">
         <Viewer fileUrl={pdfUrl} />
       </Worker>
