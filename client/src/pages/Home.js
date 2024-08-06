@@ -21,7 +21,7 @@ function Home() {
     <div className='home'>
       <Header />
       <Element name="home">
-        <div className="introduction flex-with-center" style={{ backgroundImage: `url('./images/introBg.svg')` }}>
+        <div className="introduction flex-with-center">
           <div>
             <h1>Harshal.</h1>
             <div className='intro-content d-flex justify-content-between'>
