@@ -8,7 +8,7 @@ import MyResume from '../components/MyResume';
 import ContactMe from '../components/ContactMe';
 import Projects from '../components/Projects';
 import Certificate from '../components/Certificates';
-// import img from '../images/introBG.svg'
+
 function Home() {
   const scrollToDevStack = () => {
     scroller.scrollTo('devstack', {
@@ -20,7 +20,7 @@ function Home() {
   return (
     <div className='home'>
       <Header />
-      <Element name="home-1">
+      <Element name="home" className='home-1'>
         <div className="introduction flex-with-center" >
           <div>
             <h1>Harshal.</h1>
