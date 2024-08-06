@@ -20,7 +20,7 @@ function Home() {
   return (
     <div className='home'>
       <Header />
-      <Element name="home">
+      <Element name="home-1">
         <div className="introduction flex-with-center" >
           <div>
             <h1>Harshal.</h1>
