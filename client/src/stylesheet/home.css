@@ -5,6 +5,8 @@ Element:hover {
   cursor: pointer;
 }
 .home-1{
+   background-position:bottom;
+  background-size: cover;
   background-image: url(../images/introBG.svg);
 }
 /* HOMEPAGE */
