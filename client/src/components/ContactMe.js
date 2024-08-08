@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import profileImage from '../images/Harshal.png';
 import toastr from 'toastr';
 import 'toastr/build/toastr.min.css'; // Import toastr CSS
+const url = process.env.REACT_APP_API_URL;
 
 function ContactMe() {
     const [name, setName] = useState('');
@@ -12,7 +13,7 @@ function ContactMe() {
     const handleForm = async (e) => {
         e.preventDefault();
         const formData = {
-            name:name,
+            name: name,
             email: mail,
             message: msg,
         };
@@ -25,11 +26,10 @@ function ContactMe() {
             timeOut: 0, // Disable auto-close
             extendedTimeOut: 0, // Disable extended auto-close
             tapToDismiss: false, // Disable tap to dismiss
-            // positionClass: 'toast--center' // Positioning
         });
 
         try {
-            const response = await fetch('http://localhost:8080/contact/sendEmails', {
+            const response = await fetch(`${url}/contact/sendEmails`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -46,6 +46,7 @@ function ContactMe() {
                 toastr.error('Failed to send message. Please try again.');
             }
         } catch (error) {
+
             toastr.error('An error occurred. Please try again.');
         } finally {
             // Remove loading toastr

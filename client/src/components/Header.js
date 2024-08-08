@@ -59,25 +59,9 @@ function Header() {
                 <li>
                     <Link
                         activeClass="active"
-                        to="myself"
-                        spy={true}
-                        offset={-100}
-                        duration={100}
-                        hashSpy={true}
-                        isDynamic={true}
-                        spyThrottle={0}
-                        delay={10}
-                        smooth="easeInOutQuart"
-                    >
-                        Myself
-                    </Link>
-                </li>
-                <li>
-                    <Link
-                        activeClass="active"
                         to="resume"
                         spy={true}
-                        offset={-20}
+                        offset={-80}
                         duration={100}
                         hashSpy={true}
                         isDynamic={true}
@@ -93,7 +77,7 @@ function Header() {
                         activeClass="active"
                         to="projects"
                         spy={true}
-                        offset={0}
+                        offset={-60}
                         duration={100}
                         hashSpy={true}
                         isDynamic={true}
@@ -109,7 +93,7 @@ function Header() {
                         activeClass="active"
                         to="certificates"
                         spy={true}
-                        offset={-70}
+                        offset={-20}
                         duration={100}
                         hashSpy={true}
                         isDynamic={true}
