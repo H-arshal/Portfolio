@@ -49,9 +49,8 @@ function ContactMe() {
 
             toastr.error('An error occurred. Please try again.');
         } finally {
-            // Remove loading toastr
             toastr.clear(loadingToastId);
-            setLoading(false); // Set loading to false
+            setLoading(false); 
         }
     };
 
