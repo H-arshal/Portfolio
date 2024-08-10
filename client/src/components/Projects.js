@@ -3,6 +3,7 @@ import img from '../images/DigitalClock.png';
 import Vid_URL_Shortner from '../videos/URL_Shortner.mp4';
 import Vid_Billing from '../videos/Billing.mp4';
 import Vid_Resume_Analyzer from '../videos/Resume_Analyzer.mp4';
+import Img_Pdf from '../videos/Img_Pdf.mp4'
 import NSS from '../videos/NSS.mp4'
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 
@@ -72,21 +73,21 @@ const productsList = [
     openProject: "/emptyPage"
   },
   {
-    name: 'Online Contact Manager',
-    description: 'Manages and organizes contacts securely online.',
-    githubLink: 'https://github.com/H-arshal/Online-Contact-Manager',
+    name: "Img PDF Converter",
+    description: "Converts images to PDFs and PDFs to images seamlessly.",
+    githubLink: "https://github.com/H-arshal/Img-PDF-Converter",
     techStack: [
+      "React",
       "Spring Boot",
-      "Thymeleaf",
-      "Spring Data JPA",
+      "Apache PDFBox",
+      "iText PDF Library",
       "Java",
-      "Maven",
-      "Thymeleaf",
+      "Maven"
     ],
-    about: "The online contact manager is a web application designed to simplify and streamline the management of contact information. Leveraging the robust capabilities of Spring Boot and Thymeleaf, this application provides a user-friendly interface for adding, viewing, editing, and deleting contact details. The backend, built with Spring Boot, handles data processing and storage, while Thymeleaf integrates seamlessly to render dynamic web pages. This combination ensures a responsive and efficient application that supports efficient contact management and enhances user experience.",
-    videoSrc: img,
-    openProject: "/emptyPage"
-    
+    about: "The Img PDF Converter is a versatile web application that allows users to easily convert images to PDFs and vice versa. Utilizing React for a responsive and intuitive frontend, and Spring Boot for robust backend processing, the application provides seamless conversion capabilities. The backend is powered by Apache PDFBox and iText PDF Library to handle PDF manipulation efficiently. This combination ensures high performance and a user-friendly experience for managing and converting document formats.",
+    videoSrc: Img_Pdf,
+    openProject: "https://img-pdf-converter.onrender.com/index.html"
+
   },
   {
     name: 'Google Maps Clone',
@@ -101,7 +102,7 @@ const productsList = [
     about: "This project involves creating a clone of Google Maps, designed to replicate core functionalities such as map visualization, location search, and travel advisories. The application uses React.js to build a dynamic and interactive user interface, integrating with the Google Cloud Maps API for map rendering, geocoding, and directions, and the Travel Advisory API from RapidAPI to provide travel safety information. Key features include an interactive map display that utilizes the Google Cloud Maps API to render dynamic maps with zoom, pan, and marker functionalities; location search capabilities allowing users to find and view locations on the map; and travel advisories providing up-to-date safety and security information via the RapidAPI. The application also supports custom markers and layers to highlight specific locations or areas of interest, offering a comprehensive and user-friendly mapping solution.",
     videoSrc: img,
     openProject: "/emptyPage"
-    
+
 
   },
 
