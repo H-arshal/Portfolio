@@ -1,7 +1,7 @@
 import React from 'react';
 import { Worker, Viewer } from '@react-pdf-viewer/core';
 import '@react-pdf-viewer/core/lib/styles/index.css';
-import pdfUrl from '../resume/Resume.pdf'; 
+import pdfUrl from '../resume/Resume_Updated.pdf'; 
 
 const PdfViewer = () => {
   return (
