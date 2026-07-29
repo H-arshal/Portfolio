@@ -1,10 +1,11 @@
 import React from 'react'
+import stackImg from '../images/stack.png'
 function devStack() {
   return (
     <div className='devstack container n-box2 py-5'>
       <div className='text-center'>
         <h1>My <span>DevStack</span></h1>
-        <img src='./images/stack.png' height='250' alt='' />
+        <img src={stackImg} height='250' alt='Dev Stack' />
       </div>
 
       <div className='row text-center mt-5'>

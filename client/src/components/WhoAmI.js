@@ -7,13 +7,13 @@ function WhoAmI() {
                <div>
                   <h3>Hello There!!!</h3>
                   <hr />
-                  <p><pre>{JSON.stringify({
+                  <div><pre>{JSON.stringify({
                      name: "Harshal Moon",
                      from: "Maha,In",
                      age: 22,
                      gender: "Male",
                      prog_lang:"java"
-                  }, null, 2)}</pre></p>
+                  }, null, 2)}</pre></div>
                </div>
             </div>
          </div>

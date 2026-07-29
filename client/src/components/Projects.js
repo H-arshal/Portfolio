@@ -128,18 +128,11 @@ function createSquare() {
 
 function Projects() {
   const [selectedProject, setSelectedProject] = useState(null);
-  const videoRef = useRef();
 
   useEffect(() => {
-    const intervalId = setInterval(createSquare, 10);
+    const intervalId = setInterval(createSquare, 800);
     return () => clearInterval(intervalId);
   }, []);
-
-  const setPlayBack = () => {
-    if (videoRef.current) {
-      videoRef.current.playbackRate = 2.5;
-    }
-  };
 
   const openDetails = (project) => {
     setSelectedProject(project);
@@ -164,9 +157,8 @@ function Projects() {
           {productsList.map((product, index) => (
             <div className="grid-item" key={index} onClick={() => openDetails(product)}>
               {product.videoSrc.endsWith('.mp4') ? (
-                <video autoPlay muted loop
-                  ref={videoRef}
-                  onCanPlay={() => setPlayBack()}>
+                <video autoPlay muted loop playsInline
+                  onCanPlay={(e) => { e.target.playbackRate = 2.5; }}>
                   <source src={product.videoSrc} type="video/mp4" />
                 </video>
               ) : (
