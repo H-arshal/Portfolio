@@ -1,6 +1,5 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
-import './stylesheet/home.css';
 import PageNotFound from './pages/PageNotFound';
 
 function App() {

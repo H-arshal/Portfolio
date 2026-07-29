@@ -1,4 +1,6 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState } from 'react';
+import ReactDOM from 'react-dom';
+import '../stylesheet/Projects.css';
 import img from '../images/DigitalClock.png';
 import Vid_URL_Shortner from '../videos/URL_Shortner.mp4';
 import Vid_Billing from '../videos/Billing.mp4';
@@ -37,7 +39,6 @@ const productsList = [
     about: "A URL shortener is a web application that converts long URLs into shorter, more manageable links. This project involves using React for the front-end to create a dynamic user interface where users can input long URLs and receive shortened versions. Node.js, along with Express.js, is used for the back-end to handle HTTP requests, process URL shortening logic, and communicate with the MongoDB database, which stores URL mappings. Key features of the application include URL shortening, which converts long URLs into short links; redirection, which ensures that shortened URLs redirect users to the original URLs; link management, allowing users to view and manage their shortened links (if user authentication is implemented); and optional analytics to track the usage and statistics of shortened URLs.",
     videoSrc: Vid_URL_Shortner,
     openProject: "https://url-shortner-t2r4.onrender.com/"
-
   },
   {
     name: 'NSS Website',
@@ -54,7 +55,6 @@ const productsList = [
     about: "developed an interactive website for the National Service Scheme (NSS) Committee at our college, using HTML, CSS, JavaScript, React.js, Node.js, and MongoDB. The site features a modern and responsive design that effectively showcases our committee's activities, events, and initiatives. It includes dynamic displays for upcoming events, member information management, and interactive sections for announcements and news. This platform significantly enhances our communication and engagement within the committee, serving as a central hub for updates and information. It also streamlines volunteer coordination and boosts visibility for our initiatives. Plus, ongoing maintenance and updates ensure the website stays current and continues to meet our needs effectively.",
     videoSrc: NSS,
     openProject: "https://nssweb.onrender.com/"
-
   },
   {
     name: 'Billing Management System',
@@ -67,8 +67,7 @@ const productsList = [
       "SQL",
       "Advanced Java Concepts"
     ],
-    about: "A billing management system application is designed to automate and streamline the process of managing billing and invoices for businesses. It typically handles tasks such as generating invoices, processing payments, tracking customer information, and maintaining records of transactions. In your case, you used Java AWT (Abstract Window Toolkit) for the user interface and advanced Java applications for additional functionality.Create and print invoices with details such as item descriptions, quantities, prices, and totals.Customer Management: Store and manage customer information, including contact details and transaction history.Payment Processing: Handle different payment methods and update records accordingly.Reporting: Generate reports for sales, payments, and other financial metrics.Data Storage: Maintain records of transactions and customer details in a database."
-    ,
+    about: "A billing management system application is designed to automate and streamline the process of managing billing and invoices for businesses. It typically handles tasks such as generating invoices, processing payments, tracking customer information, and maintaining records of transactions. In your case, you used Java AWT (Abstract Window Toolkit) for the user interface and advanced Java applications for additional functionality.Create and print invoices with details such as item descriptions, quantities, prices, and totals.Customer Management: Store and manage customer information, including contact details and transaction history.Payment Processing: Handle different payment methods and update records accordingly.Reporting: Generate reports for sales, payments, and other financial metrics.Data Storage: Maintain records of transactions and customer details in a database.",
     videoSrc: Vid_Billing,
     openProject: "/emptyPage"
   },
@@ -87,7 +86,6 @@ const productsList = [
     about: "The Img PDF Converter is a versatile web application that allows users to easily convert images to PDFs and vice versa. Utilizing React for a responsive and intuitive frontend, and Spring Boot for robust backend processing, the application provides seamless conversion capabilities. The backend is powered by Apache PDFBox and iText PDF Library to handle PDF manipulation efficiently. This combination ensures high performance and a user-friendly experience for managing and converting document formats.",
     videoSrc: Img_Pdf,
     openProject: "https://img-pdf-converter.onrender.com/index.html"
-
   },
   {
     name: 'Google Maps Clone',
@@ -102,68 +100,50 @@ const productsList = [
     about: "This project involves creating a clone of Google Maps, designed to replicate core functionalities such as map visualization, location search, and travel advisories. The application uses React.js to build a dynamic and interactive user interface, integrating with the Google Cloud Maps API for map rendering, geocoding, and directions, and the Travel Advisory API from RapidAPI to provide travel safety information. Key features include an interactive map display that utilizes the Google Cloud Maps API to render dynamic maps with zoom, pan, and marker functionalities; location search capabilities allowing users to find and view locations on the map; and travel advisories providing up-to-date safety and security information via the RapidAPI. The application also supports custom markers and layers to highlight specific locations or areas of interest, offering a comprehensive and user-friendly mapping solution.",
     videoSrc: img,
     openProject: "/emptyPage"
-
-
   },
-
 ];
 
-function createSquare() {
-  const colors = ['green', 'red', 'yellow', 'blue'];
-  const mainContainer = document.querySelector('section');
-  const square = document.createElement('span');
-  var size = Math.random() * 2;
-  const bg = colors[Math.floor(Math.random() * colors.length)];
-  square.style.width = 10 + size + 'px';
-  square.style.height = 10 + size + 'px';
-  square.style.background = bg;
-  square.style.position = 'absolute';
-  square.style.top = Math.random() * 90 + '%';
-  square.style.left = Math.random() * 97 + '%';
-  mainContainer.appendChild(square);
-  setTimeout(() => {
-    square.remove();
-  }, 5000);
-}
+
 
 function Projects() {
   const [selectedProject, setSelectedProject] = useState(null);
 
-  useEffect(() => {
-    const intervalId = setInterval(createSquare, 800);
-    return () => clearInterval(intervalId);
-  }, []);
 
   const openDetails = (project) => {
     setSelectedProject(project);
+    document.body.style.overflow = 'hidden';
   };
 
   const closeDetails = () => {
     setSelectedProject(null);
+    document.body.style.overflow = '';
   };
 
   const openLinks = (url) => {
-    window.open(url, '_blank', 'noopener,noreferrer');
-    console.log("ok")
+    if (url && url !== "/emptyPage") {
+      window.open(url, '_blank', 'noopener,noreferrer');
+    }
   };
 
   return (
-    <section>
+    <section className="projects-section">
       <div className="projects">
         <div className='heading-div'>
-          <div className="heading">Projects</div>
+          <h2 className="projects-heading">My <span>Projects</span></h2>
         </div>
         <div className="grid-container">
           {productsList.map((product, index) => (
             <div className="grid-item" key={index} onClick={() => openDetails(product)}>
-              {product.videoSrc.endsWith('.mp4') ? (
-                <video autoPlay muted loop playsInline
-                  onCanPlay={(e) => { e.target.playbackRate = 2.5; }}>
-                  <source src={product.videoSrc} type="video/mp4" />
-                </video>
-              ) : (
-                <img src={product.videoSrc} alt={product.name} />
-              )}
+              <div className="project-thumbnail">
+                {product.videoSrc.endsWith('.mp4') ? (
+                  <video autoPlay muted loop playsInline
+                    onCanPlay={(e) => { e.target.playbackRate = 2.5; }}>
+                    <source src={product.videoSrc} type="video/mp4" />
+                  </video>
+                ) : (
+                  <img src={product.videoSrc} alt={product.name} />
+                )}
+              </div>
               <div className='project-details'>
                 <h2>{product.name}</h2>
                 <p>{product.description}</p>
@@ -178,17 +158,17 @@ function Projects() {
             </div>
           ))}
         </div>
-        {selectedProject && (
+        {selectedProject && ReactDOM.createPortal(
           <div className="modal-overlay" onClick={closeDetails}>
             <div className="modal-content" onClick={(e) => e.stopPropagation()}>
               <div className='head-name'>
-                <button className="close-btn" onClick={closeDetails}>X</button>
+                <button className="close-btn" onClick={closeDetails}>&times;</button>
                 <h2>{selectedProject.name}</h2>
                 <p>{selectedProject.description}</p>
               </div>
               <div className='video-tag'>
                 {selectedProject.videoSrc.endsWith('.mp4') ? (
-                  <video autoPlay muted loop>
+                  <video autoPlay muted loop controls playsInline>
                     <source src={selectedProject.videoSrc} type="video/mp4" />
                   </video>
                 ) : (
@@ -213,20 +193,21 @@ function Projects() {
                   <a href={selectedProject.githubLink} target="_blank" rel="noopener noreferrer">{selectedProject.githubLink}</a>
                 </div>
               </div>
+              {selectedProject.openProject !== "/emptyPage" && (
+                <div className='open-project-link'>
+                  <div className='link' onClick={() => openLinks(selectedProject.openProject)}>
+                    <div>Open Project</div>
+                    <FaExternalLinkAlt />
+                  </div>
+                </div>
+              )}
             </div>
-            <div className='open-project-link' onClick={(e) => e.stopPropagation()}>
-              <div className='link' onClick={() => openLinks(selectedProject.openProject)}>
-                <div>Open Project</div>
-                <FaExternalLinkAlt />
-              </div>
-            </div>
-          </div>
+          </div>,
+          document.body
         )}
       </div>
-      <div className='certifications'></div>
     </section>
   );
 }
 
 export default Projects;
-  

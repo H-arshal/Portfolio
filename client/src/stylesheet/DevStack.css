@@ -1,0 +1,62 @@
+.skills-section {
+  padding: 100px 5%;
+  background-color: var(--bg-base);
+}
+
+.skills-heading {
+  text-align: center;
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: 60px;
+}
+
+.skills-heading span {
+  color: var(--accent-primary);
+}
+
+.bento-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.bento-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.bento-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-glow);
+  border-color: rgba(0, 229, 255, 0.3);
+}
+
+.bento-icon {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.bento-title {
+  font-size: 1.5rem;
+  margin-bottom: 16px;
+  font-family: var(--font-heading);
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.skill-tag {
+  background: var(--overlay-light);
+  color: var(--text-secondary);
+  padding: 6px 14px;
+  border-radius: 100px;
+  font-size: 0.875rem;
+  border: 1px solid var(--border-subtle);
+}

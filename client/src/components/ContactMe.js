@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
-import profileImage from '../images/Harshal.png';
 import toastr from 'toastr';
-import 'toastr/build/toastr.min.css'; // Import toastr CSS
+import 'toastr/build/toastr.min.css';
+import '../stylesheet/ContactMe.css';
 const url = process.env.REACT_APP_API_URL;
 
 function ContactMe() {
     const [name, setName] = useState('');
     const [mail, setMail] = useState('');
     const [msg, setMsg] = useState('');
-    const [loading, setLoading] = useState(false); // Add loading state
+    const [loading, setLoading] = useState(false);
 
     const handleForm = async (e) => {
         e.preventDefault();
@@ -18,14 +18,13 @@ function ContactMe() {
             message: msg,
         };
 
-        setLoading(true); // Set loading to true
+        setLoading(true);
 
-        // Show loading toastr
         const loadingToastId = toastr.info('Sending message...', '', {
             closeButton: false,
-            timeOut: 0, // Disable auto-close
-            extendedTimeOut: 0, // Disable extended auto-close
-            tapToDismiss: false, // Disable tap to dismiss
+            timeOut: 0,
+            extendedTimeOut: 0,
+            tapToDismiss: false,
         });
 
         try {
@@ -46,7 +45,6 @@ function ContactMe() {
                 toastr.error('Failed to send message. Please try again.');
             }
         } catch (error) {
-
             toastr.error('An error occurred. Please try again.');
         } finally {
             toastr.clear(loadingToastId);
@@ -55,62 +53,51 @@ function ContactMe() {
     };
 
     return (
-        <div className="ContactMe">
-            <div className="sub-container">
-                <h1>Let's <span>Talk</span></h1>
-                <p>You can contact me from here !!!</p>
-                <form onSubmit={handleForm}>
-                    <div className="entry-field">
-                        <label>Your Name :
-                            <input
-                                type='text'
-                                name='name'
-                                id='name'
-                                value={name}
-                                onChange={(e) => setName(e.target.value)}
-                                placeholder='Enter your Name here!!!'
-                                required
-                            />
-                        </label>
+        <section className="contact-section">
+            <div className="contact-container">
+                <div className="contact-header">
+                    <h2>Let's <span>Talk</span></h2>
+                    <p>Have a project in mind, or just want to say hi? Fill out the form and I'll get back to you as soon as possible.</p>
+                </div>
+                <form className="contact-form" onSubmit={handleForm}>
+                    <div className="input-group">
+                        <label htmlFor="name">Name</label>
+                        <input
+                            type="text"
+                            id="name"
+                            value={name}
+                            onChange={(e) => setName(e.target.value)}
+                            placeholder="John Doe"
+                            required
+                        />
                     </div>
-                    <div className="entry-field">
-                        <label>Your Email :
-                            <input
-                                type='email'
-                                name='email'
-                                id='email'
-                                value={mail}
-                                onChange={(e) => setMail(e.target.value)}
-                                placeholder='Enter your E-mail here!!!'
-                                required
-                            />
-                        </label>
+                    <div className="input-group">
+                        <label htmlFor="email">Email</label>
+                        <input
+                            type="email"
+                            id="email"
+                            value={mail}
+                            onChange={(e) => setMail(e.target.value)}
+                            placeholder="john@example.com"
+                            required
+                        />
                     </div>
-                    <div className="entry-field">
-                        <label>Your Message :
-                            <textarea
-                                name='message'
-                                id='message'
-                                value={msg}
-                                onChange={(e) => setMsg(e.target.value)}
-                                placeholder='Enter your Message here!!!'
-                                required
-                            ></textarea>
-                        </label>
+                    <div className="input-group">
+                        <label htmlFor="message">Message</label>
+                        <textarea
+                            id="message"
+                            value={msg}
+                            onChange={(e) => setMsg(e.target.value)}
+                            placeholder="Tell me about your project..."
+                            required
+                        ></textarea>
                     </div>
-                    <button
-                        type='submit'
-                        value='Submit'
-                        disabled={loading} // Disable button while loading
-                    >
+                    <button type="submit" className="btn-submit" disabled={loading}>
                         {loading ? 'Sending...' : 'Send Message'}
                     </button>
                 </form>
             </div>
-            <div className="about-container">
-                <img src={profileImage} alt="Harshal Moon" className="profile-image" />
-            </div>
-        </div>
+        </section>
     );
 }
 

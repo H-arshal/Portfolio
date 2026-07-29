@@ -1,33 +1,93 @@
-/* @import url("https://fonts.googleapis.com/css2?family=Stylish&display=swap"); */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap');
+
+:root {
+  /* Dark Mode Palette (Default) */
+  --bg-base: #050505;          
+  --bg-surface: #111111;       
+  --bg-surface-hover: #1a1a1a; 
+  --border-subtle: rgba(255, 255, 255, 0.1);
+  --text-primary: #ffffff;
+  --text-secondary: #888888;
+  --accent-primary: #00E5FF;   
+  
+  /* Global Layout Overlays & Shadows (Dark Mode) */
+  --overlay-bg: rgba(0, 0, 0, 0.85);
+  --bg-glass: rgba(5, 5, 5, 0.7);
+  --overlay-light: rgba(255, 255, 255, 0.05);
+  --shadow-glow: 0 0 40px rgba(0, 229, 255, 0.1);
+  --shadow-lg: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 20px 40px rgba(0, 0, 0, 0.4);
+  --shadow-sm: 0 8px 24px rgba(255, 255, 255, 0.15);
+  
+  /* Typography */
+  --font-heading: 'Outfit', sans-serif;
+  --font-body: 'Inter', sans-serif;
+
+  /* Radii */
+  --radius-md: 12px;
+  --radius-lg: 24px;
+}
+
+[data-theme='light'] {
+  /* Light Mode Palette */
+  --bg-base: #fafafa;
+  --bg-surface: #ffffff;
+  --bg-surface-hover: #f4f4f5;
+  --border-subtle: rgba(0, 0, 0, 0.1);
+  --text-primary: #09090b;
+  --text-secondary: #52525b;
+  --accent-primary: #008da6; /* Darker teal for legibility */
+  
+  /* Global Layout Overlays & Shadows (Light Mode) */
+  --overlay-bg: rgba(255, 255, 255, 0.85);
+  --bg-glass: rgba(255, 255, 255, 0.7);
+  --overlay-light: rgba(0, 0, 0, 0.05);
+  --shadow-glow: 0 0 40px rgba(0, 141, 166, 0.15);
+  --shadow-lg: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 20px 40px rgba(0, 0, 0, 0.08);
+  --shadow-sm: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  font-family: var(--font-body);
+  background-color: var(--bg-base);
+  color: var(--text-primary);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-family: "Stylish", sans-serif;
-  background-color: #4f575f;/* Set the custom cursor with offset */
-    
-}
-body,
-html {
-  overflow: scroll;
   overflow-x: hidden;
 }
+
+
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  margin: 0;
+}
+
 ::-webkit-scrollbar {
-  width: 0.7px;
-  background: transparent;
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-base); 
+}
+::-webkit-scrollbar-thumb {
+  background: var(--bg-surface-hover); 
+  border-radius: 4px;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
+
 * {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
+
+/* Legacy Classes (To be refactored) */
 .flex-with-center {
   display: flex;
   align-items: center;

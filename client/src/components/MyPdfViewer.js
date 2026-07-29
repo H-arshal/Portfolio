@@ -23,24 +23,18 @@ import pdfUrl from '../resume/Resume_001.pdf';
 
 const PdfViewer = () => {
   return (
-    <div style={{ height: '1110px' }}>
-
-      <Worker workerUrl="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js">
-        <Viewer fileUrl={pdfUrl} />
-      </Worker>
-
-      <div style={{ marginBottom: '10px', textAlign: 'right' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+      <div style={{ height: '950px', borderRadius: '12px', overflow: 'hidden', border: '1px solid var(--border-subtle)' }}>
+        <Worker workerUrl="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js">
+          <Viewer fileUrl={pdfUrl} />
+        </Worker>
+      </div>
+      <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
         <a
           href={pdfUrl}
           download="Harshal_Resume.pdf"
-          style={{
-            textDecoration: 'none',
-            backgroundColor: '#4CAF50',
-            color: 'white',
-            padding: '10px 20px',
-            borderRadius: '5px',
-            fontWeight: 'bold'
-          }}
+          className="btn-primary"
+          style={{ textDecoration: 'none' }}
         >
           Download Resume
         </a>
