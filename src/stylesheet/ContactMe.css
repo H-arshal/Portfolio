@@ -4,6 +4,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 
 .contact-container {
@@ -41,6 +42,13 @@
   gap: 24px;
 }
 
+/* --- Two-column row for paired fields --- */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
 .input-group {
   display: flex;
   flex-direction: column;
@@ -51,6 +59,12 @@
   font-size: 0.875rem;
   font-weight: 500;
   color: var(--text-secondary);
+}
+
+.optional-label {
+  font-weight: 400;
+  opacity: 0.6;
+  font-size: 0.8rem;
 }
 
 .input-group input,
@@ -79,6 +93,7 @@
   min-height: 150px;
 }
 
+/* --- Submit button --- */
 .btn-submit {
   background: var(--text-primary);
   color: var(--bg-base);
@@ -89,6 +104,10 @@
   font-size: 1rem;
   cursor: pointer;
   transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
 }
 
 .btn-submit:hover:not(:disabled) {
@@ -101,9 +120,83 @@
   cursor: not-allowed;
 }
 
+/* --- Spinner inside the button --- */
+.btn-spinner {
+  width: 18px;
+  height: 18px;
+  border: 2px solid transparent;
+  border-top-color: var(--bg-base);
+  border-right-color: var(--bg-base);
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* --- Custom toast notifications --- */
+.contact-toast {
+  position: fixed;
+  top: 32px;
+  right: 32px;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 24px;
+  border-radius: var(--radius-md, 10px);
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #fff;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+  animation: toastSlideIn 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes toastSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.contact-toast--success {
+  background: linear-gradient(135deg, #059669, #10b981);
+}
+
+.contact-toast--error {
+  background: linear-gradient(135deg, #dc2626, #ef4444);
+}
+
+.contact-toast--info {
+  background: linear-gradient(135deg, #2563eb, #3b82f6);
+}
+
+.contact-toast__icon {
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.contact-toast__message {
+  line-height: 1.4;
+}
+
+/* --- Responsive --- */
 @media (max-width: 900px) {
   .contact-container {
     grid-template-columns: 1fr;
     padding: 32px;
+  }
+}
+
+@media (max-width: 560px) {
+  .form-row {
+    grid-template-columns: 1fr;
   }
 }
