@@ -1,0 +1,102 @@
+.resume-container {
+  padding: calc(var(--space-2xl) + 40px) var(--space-xl);
+  background-color: var(--color-paper-light);
+  border-top: var(--border-heavy);
+  border-bottom: var(--border-heavy);
+}
+
+.resume-header {
+  max-width: 1200px;
+  margin: 0 auto var(--space-xl);
+  text-align: left;
+}
+
+.resume-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  gap: var(--space-xl);
+  align-items: start;
+}
+
+.resume-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  position: sticky;
+  top: 100px;
+}
+
+.social-links-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-sm);
+}
+
+.comic-social-card {
+  background: var(--color-paper);
+  border: var(--border-light);
+  padding: var(--space-sm);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  transition: transform 0.15s ease-out, box-shadow 0.15s ease-out;
+  box-shadow: 2px 2px 0px var(--color-ink);
+}
+
+.comic-social-card:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 3px 0px var(--color-ink);
+  background: var(--color-signal-yellow);
+}
+
+.comic-social-card:active {
+  transform: translate(1px, 1px);
+  box-shadow: 1px 1px 0px var(--color-ink);
+}
+
+.comic-social-icon {
+  font-size: 1.25rem;
+  color: var(--color-ink);
+}
+
+.resume-viewer-wrapper {
+  width: 100%;
+}
+
+.resume-viewer-panel {
+  padding: var(--space-sm);
+  background-color: var(--color-muted); /* Darker background around PDF */
+  min-height: 800px;
+  overflow: hidden;
+}
+
+/* Fix for PdfViewer so it fits properly */
+.resume-viewer-panel > div {
+  height: 100%;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+@media (max-width: 900px) {
+  .resume-content {
+    grid-template-columns: 1fr;
+  }
+  
+  .resume-sidebar {
+    position: static;
+  }
+  
+  .social-links-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 500px) {
+  .social-links-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

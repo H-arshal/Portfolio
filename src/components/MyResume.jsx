@@ -1,8 +1,9 @@
 import React from 'react';
-import imgURL from '../images/Harshal.png';
 import { FaFacebook, FaTwitter, FaLinkedin, FaInstagram, FaGithub } from 'react-icons/fa';
 import PdfViewer from './MyPdfViewer';
-import '../stylesheet/Resume.css';
+import { ComicPanel } from './comic/ComicPanel';
+import { IssueLabel } from './comic/IssueLabel';
+import '../styles/Resume.css';
 
 const MyResume = () => {
 
@@ -21,23 +22,30 @@ const MyResume = () => {
 
     return (
         <section className='resume-container'>
-            <h2 className="resume-heading">My <span>Resume</span></h2>
+            <div className="resume-header">
+                <IssueLabel issue="ISSUE #004" title="CHARACTER PROFILE" />
+                <h2 className="text-display" style={{fontSize: 'clamp(2.5rem, 5vw, 4rem)'}}>DOSSIER</h2>
+            </div>
+            
             <div className="resume-content">
                 <aside className="resume-sidebar">
-                    <div className="resume-photo-wrapper">
-                        <img src={imgURL} alt='Harshal Moon' />
-                    </div>
-                    <div className="social-links-grid">
-                        {socialLinks.map(([name, link, icon], index) => (
-                            <div className="social-link-card" key={index} onClick={() => openLink(link)}>
-                                <div className="social-link-icon">{icon}</div>
-                                <span style={{ fontSize: '0.875rem' }}>{name}</span>
-                            </div>
-                        ))}
-                    </div>
+                    <ComicPanel className="social-links-panel">
+                        <h3 className="text-body text-bold" style={{marginBottom: '1rem', textTransform: 'uppercase'}}>Connect</h3>
+                        <div className="social-links-grid">
+                            {socialLinks.map(([name, link, icon], index) => (
+                                <div className="comic-social-card" key={index} onClick={() => openLink(link)}>
+                                    <div className="comic-social-icon">{icon}</div>
+                                    <span className="text-technical" style={{ fontSize: '0.75rem' }}>{name}</span>
+                                </div>
+                            ))}
+                        </div>
+                    </ComicPanel>
                 </aside>
-                <main className="resume-viewer">
-                    <PdfViewer />
+                
+                <main className="resume-viewer-wrapper">
+                    <ComicPanel irregular={true} className="resume-viewer-panel">
+                        <PdfViewer />
+                    </ComicPanel>
                 </main>
             </div>
         </section>

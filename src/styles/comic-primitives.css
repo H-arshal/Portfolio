@@ -1,0 +1,126 @@
+.comic-panel {
+  background-color: var(--color-paper-light);
+  border: var(--border-heavy);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-comic-md);
+  padding: var(--space-md);
+  position: relative;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.comic-panel.irregular {
+  border-radius: 2px 8px 3px 6px;
+  transform: rotate(-0.5deg);
+  clip-path: polygon(
+    2% 4%, 30% 0%, 55% 3%, 78% 0%, 100% 5%,
+    98% 40%, 100% 78%, 96% 100%, 60% 97%,
+    32% 100%, 4% 96%, 0% 60%, 3% 30%
+  );
+}
+
+.comic-panel:hover {
+  /* Subtle lift on hover if it's interactive, otherwise just for visual */
+  transform: translateY(-2px) rotate(-0.5deg);
+  box-shadow: var(--shadow-comic-hover);
+}
+
+.comic-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-lg);
+  font-family: var(--font-body);
+  font-weight: 800;
+  text-transform: uppercase;
+  border: var(--border-heavy);
+  border-radius: var(--radius-sm);
+  box-shadow: 8px 8px 0 var(--color-ink);
+  cursor: pointer;
+  transition: all 0.15s ease-out;
+  text-decoration: none;
+}
+
+.comic-button:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 6px 6px 0 var(--color-ink);
+}
+
+.comic-button:active {
+  transform: translate(8px, 8px);
+  box-shadow: 0 0 0 var(--color-ink);
+}
+
+.comic-button:focus-visible {
+  outline: 3px solid var(--color-tech-blue);
+  outline-offset: 3px;
+}
+
+.comic-button.primary {
+  background-color: var(--color-signal-yellow);
+  color: var(--color-ink);
+}
+
+.comic-button.secondary {
+  background-color: var(--color-paper-light);
+  color: var(--color-ink);
+}
+
+.comic-button.tech {
+  background-color: var(--color-tech-blue);
+  color: var(--color-paper-light);
+}
+
+.issue-label {
+  display: inline-block;
+  background-color: var(--color-comic-red);
+  color: var(--color-paper-light);
+  font-family: var(--font-comic);
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+  padding: 4px 12px;
+  border: var(--border-heavy);
+  box-shadow: 4px 4px 0px var(--color-ink);
+  transform: rotate(-1deg);
+  margin-bottom: var(--space-sm);
+}
+
+.tech-annotation {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--color-tech-blue);
+  font-weight: 600;
+}
+
+.speech-bubble {
+  position: relative;
+  background: var(--color-paper-light);
+  border: var(--border-heavy);
+  border-radius: var(--radius-lg);
+  padding: var(--space-md);
+  box-shadow: var(--shadow-comic-sm);
+  display: inline-block;
+  font-family: var(--font-body);
+  font-weight: 600;
+}
+
+.speech-bubble::after {
+  content: '';
+  position: absolute;
+  bottom: -18px;
+  left: 20px;
+  border-width: 18px 18px 0 0;
+  border-style: solid;
+  border-color: var(--color-ink) transparent transparent transparent;
+}
+
+.speech-bubble::before {
+  content: '';
+  position: absolute;
+  bottom: -12px;
+  left: 23px;
+  border-width: 13px 13px 0 0;
+  border-style: solid;
+  border-color: var(--color-paper-light) transparent transparent transparent;
+  z-index: 1;
+}

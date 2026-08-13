@@ -1,55 +1,45 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-scroll';
-import { FaSun, FaMoon } from 'react-icons/fa';
-import '../stylesheet/Header.css';
+import '../styles/Header.css';
 
 function Header() {
-    const [theme, setTheme] = useState('dark');
-
-    useEffect(() => {
-        const savedTheme = localStorage.getItem('portfolio-theme') || 'dark';
-        setTheme(savedTheme);
-        document.documentElement.setAttribute('data-theme', savedTheme);
-    }, []);
-
-    const toggleTheme = () => {
-        const newTheme = theme === 'dark' ? 'light' : 'dark';
-        setTheme(newTheme);
-        localStorage.setItem('portfolio-theme', newTheme);
-        document.documentElement.setAttribute('data-theme', newTheme);
-    };
-
     const navItems = [
-        { name: 'Home', to: 'home' },
-        { name: 'Stack', to: 'devstack' },
-        { name: 'Resume', to: 'resume' },
-        { name: 'Projects', to: 'project' },
-        { name: 'Certificates', to: 'certificates' },
-        { name: 'Contact', to: 'contact' },
+        { name: 'HOME', to: 'home', num: '01' },
+        { name: 'STACK', to: 'devstack', num: '02' },
+        { name: 'ABOUT', to: 'myself', num: '03' },
+        { name: 'RESUME', to: 'resume', num: '04' },
+        { name: 'PROJECTS', to: 'project', num: '05' },
+        { name: 'CERTIFICATES', to: 'certificates', num: '06' },
+        { name: 'CONTACT', to: 'contact', num: '07' },
     ];
 
     return (
-        <nav className='nav-container'>
-            <ul className='nav-links'>
-                {navItems.map((item) => (
-                    <li key={item.name}>
-                        <Link
-                            activeClass="active"
-                            to={item.to}
-                            spy={true}
-                            smooth="easeInOutQuart"
-                            duration={100}
-                            offset={-100}
-                        >
-                            {item.name}
-                        </Link>
-                    </li>
-                ))}
-            </ul>
-            <button className='theme-toggle' onClick={toggleTheme} aria-label="Toggle Theme">
-                {theme === 'dark' ? <FaSun /> : <FaMoon />}
-            </button>
-        </nav>
+        <header className='comic-header'>
+            <div className="comic-header-inner">
+                <div className="header-logo">
+                    <span className="logo-text">HM</span>
+                </div>
+                <nav className='comic-nav'>
+                    <ul className='nav-links'>
+                        {navItems.map((item, index) => (
+                            <li key={item.name}>
+                                <Link
+                                    activeClass="active"
+                                    to={item.to}
+                                    spy={true}
+                                    smooth="easeInOutQuart"
+                                    duration={500}
+                                    offset={-80}
+                                >
+                                    <span className="nav-num">{item.num}</span> {item.name}
+                                </Link>
+                                {index < navItems.length - 1 && <span className="nav-separator">·</span>}
+                            </li>
+                        ))}
+                    </ul>
+                </nav>
+            </div>
+        </header>
     );
 }
 

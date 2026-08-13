@@ -1,0 +1,82 @@
+.devstack-section {
+  padding: calc(var(--space-2xl) + 40px) var(--space-xl);
+  background-color: var(--color-paper-light);
+  background-image: var(--halftone-bg);
+  background-size: var(--halftone-size);
+  position: relative;
+  border-top: var(--border-heavy);
+  border-bottom: var(--border-heavy);
+}
+
+.devstack-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.devstack-header {
+  margin-bottom: var(--space-2xl);
+  max-width: 600px;
+}
+
+.devstack-header h2 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  margin-bottom: var(--space-sm);
+}
+
+.devstack-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--space-xl);
+  position: relative;
+  z-index: 2;
+}
+
+.devstack-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.devstack-icon {
+  font-size: 2.5rem;
+  margin-bottom: var(--space-md);
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+
+.skill-badge {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  padding: 4px 10px;
+  border: var(--border-light);
+  box-shadow: 2px 2px 0px rgba(21, 21, 21, 0.1);
+  font-weight: 600;
+}
+
+.devstack-decoration {
+  position: absolute;
+  top: -100px;
+  right: 0;
+  z-index: 1;
+  opacity: 0.8;
+}
+
+.devstack-decor-img {
+  max-width: 250px;
+  filter: drop-shadow(4px 4px 0px rgba(21,21,21,0.1));
+}
+
+@media (max-width: 900px) {
+  .devstack-decoration {
+    position: static;
+    display: flex;
+    justify-content: center;
+    margin-top: var(--space-xl);
+  }
+}

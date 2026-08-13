@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Bowlby+One&family=Bowlby+One+SC&family=JetBrains+Mono:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+/* Typography Utilities */
+.text-display {
+  font-family: var(--font-display);
+  font-weight: 400;
+  color: var(--color-ink);
+  line-height: 0.88;
+  letter-spacing: -0.025em;
+  text-transform: uppercase;
+}
+
+.text-comic-label {
+  font-family: var(--font-comic);
+  font-weight: 400;
+  font-size: 1rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.text-body {
+  font-family: var(--font-body);
+  font-weight: 500;
+  color: var(--color-ink);
+  line-height: 1.6;
+}
+
+.text-technical {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  color: var(--color-tech-blue);
+  line-height: 1.4;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  margin: 0;
+  color: var(--color-ink);
+}
+
+p {
+  margin: 0 0 var(--space-md) 0;
+}
