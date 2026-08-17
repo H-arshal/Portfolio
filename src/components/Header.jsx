@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-scroll';
+import logoImg from '../assets/logo-no-bg.png';
 import '../styles/Header.css';
 
 function Header() {
@@ -17,7 +18,16 @@ function Header() {
         <header className='comic-header'>
             <div className="comic-header-inner">
                 <div className="header-logo">
-                    <span className="logo-text">HM</span>
+                    <Link
+                        to="home"
+                        spy={true}
+                        smooth="easeInOutQuart"
+                        duration={500}
+                        offset={-80}
+                        className="logo-link"
+                    >
+                        <img src={logoImg} alt="Harshal Moon Logo" className="header-logo-img" />
+                    </Link>
                 </div>
                 <nav className='comic-nav'>
                     <ul className='nav-links'>
