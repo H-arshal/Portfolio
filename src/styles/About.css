@@ -1,10 +1,10 @@
 /* ==========================================================================
-   Section 03: Origin Story / About Me (18-VISUAL-COMPONENT-SYSTEM.md Spec)
+   Section 03: Origin Story / About Me (about-me.png Design Spec Alignment)
    ========================================================================== */
 
 .about-section {
   padding: calc(var(--space-2xl) + 40px) var(--space-xl);
-  background-color: var(--color-paper);
+  background-color: var(--color-paper-light);
   background-image: var(--halftone-bg);
   background-size: var(--halftone-size);
   position: relative;
@@ -15,28 +15,16 @@
 .about-container {
   max-width: 1200px;
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
-  gap: var(--space-2xl);
-  align-items: flex-start;
   position: relative;
   z-index: 2;
 }
 
-/* --------------------------------------------------------------------------
-   Left Column — Timeline & Hierarchy
-   -------------------------------------------------------------------------- */
-.about-content {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
+/* Issue Marker */
 .about-issue-group {
   display: flex;
   align-items: center;
   gap: var(--space-sm);
-  margin-bottom: var(--space-sm);
+  margin-bottom: var(--space-xl);
   transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
@@ -52,114 +40,274 @@
   letter-spacing: 1px;
 }
 
-.about-title {
-  font-family: var(--font-display);
-  font-size: clamp(2.5rem, 5.5vw, 4.2rem);
-  color: var(--color-ink);
-  letter-spacing: -1px;
-  margin: var(--space-xs) 0 var(--space-sm) 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.3em;
-  line-height: 1.1;
+/* --------------------------------------------------------------------------
+   3-Column Main Layout
+   -------------------------------------------------------------------------- */
+.about-three-column-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.95fr 0.9fr;
+  gap: var(--space-xl);
+  align-items: start;
 }
 
-.about-title .hover-letter {
+.about-col {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ==========================================================================
+   Column 1: ABOUT ME Dossier Card
+   ========================================================================== */
+.about-me-dossier {
+  background-color: var(--color-paper);
+  border: var(--border-heavy);
+  box-shadow: var(--shadow-comic-md);
+  padding: var(--space-xl);
+  position: relative;
+  transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.25s ease;
+}
+
+.about-me-dossier:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-comic-lg);
+}
+
+.col-tech-tag {
+  font-family: var(--font-technical);
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: var(--color-comic-red);
+  letter-spacing: 1.5px;
+  margin-bottom: var(--space-xs);
+  display: block;
+}
+
+.about-dossier-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 4vw, 3rem);
+  color: var(--color-ink);
+  letter-spacing: -1px;
+  margin: 0 0 var(--space-md) 0;
+  line-height: 1.05;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25em;
+}
+
+.red-text {
+  color: var(--color-comic-red);
+}
+
+.about-dossier-title .hover-letter {
   display: inline-block;
   transition: transform 0.22s cubic-bezier(0.175, 0.885, 0.32, 1.275), color 0.2s ease, text-shadow 0.2s ease;
   cursor: pointer;
   user-select: none;
 }
 
-.about-title .hover-letter:hover {
-  transform: translateY(-8px) scale(1.15) rotate(-3deg);
-  color: var(--color-comic-red);
-  text-shadow: 4px 4px 0 var(--color-ink);
+.about-dossier-title .hover-letter:hover {
+  transform: translateY(-6px) scale(1.15) rotate(-3deg);
+  color: var(--color-signal-yellow);
+  text-shadow: 3px 3px 0 var(--color-ink);
 }
 
-.about-subtitle {
+.about-bio-text {
   font-family: var(--font-body);
-  font-size: 1.05rem;
-  font-weight: 700;
+  font-size: 0.95rem;
+  font-weight: 500;
   color: var(--color-ink-light);
-  line-height: 1.5;
-  margin-bottom: var(--space-xl);
+  line-height: 1.6;
+  margin-bottom: var(--space-lg);
+  padding-bottom: var(--space-md);
+  border-bottom: 2px dashed var(--color-border-subtle);
 }
 
-/* 4-Chapter Journey Grid */
-.journey-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: var(--space-md);
-  width: 100%;
-  margin-bottom: var(--space-xl);
-}
-
-.chapter-card {
-  background-color: var(--color-paper-light);
-  border: var(--border-heavy);
-  box-shadow: var(--shadow-comic-sm);
-  padding: var(--space-md);
+/* Details List with Icons */
+.about-details-list {
   display: flex;
   flex-direction: column;
-  transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.25s ease;
+  gap: var(--space-md);
+  margin-bottom: var(--space-xl);
 }
 
-.chapter-card:hover {
-  transform: translateY(-4px) rotate(-0.5deg);
-  box-shadow: var(--shadow-comic-md);
-}
-
-.chapter-card-header {
+.detail-item {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: var(--space-sm);
+  gap: var(--space-md);
+  align-items: flex-start;
 }
 
-.chapter-number {
+.detail-icon-box {
+  width: 36px;
+  height: 36px;
+  background-color: var(--color-paper-light);
+  border: var(--border-medium);
+  box-shadow: 2px 2px 0 var(--color-ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  color: var(--color-ink);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.detail-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.detail-label {
   font-family: var(--font-technical);
   font-size: 0.75rem;
   font-weight: 800;
   color: var(--color-comic-red);
+  letter-spacing: 1px;
+}
+
+.detail-val-primary {
+  font-family: var(--font-heading);
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: var(--color-ink);
+  margin: 0;
+  line-height: 1.35;
+}
+
+.detail-val-sub {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-ink-light);
+  margin: 0;
+}
+
+.about-cta-btn {
+  background-color: var(--color-paper-light);
+  color: var(--color-ink);
+  font-family: var(--font-heading);
+  font-size: 0.9rem;
+  font-weight: 800;
+  padding: 10px 18px;
+  border: var(--border-heavy);
+  box-shadow: var(--shadow-comic-sm);
+  cursor: pointer;
+  align-self: flex-start;
+  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.2s ease, background-color 0.2s ease;
   letter-spacing: 0.5px;
 }
 
-.chapter-tag {
-  font-family: var(--font-technical);
-  font-size: 0.65rem;
-  font-weight: 800;
+.about-cta-btn:hover {
+  background-color: var(--color-signal-yellow);
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: var(--shadow-comic-md);
+}
+
+/* ==========================================================================
+   Column 2: JOURNEY TIMELINE Card
+   ========================================================================== */
+.journey-timeline-card {
+  background-color: var(--color-paper);
+  border: var(--border-heavy);
+  box-shadow: var(--shadow-comic-md);
+  padding: var(--space-xl);
+  position: relative;
+  transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.25s ease;
+}
+
+.journey-timeline-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-comic-lg);
+}
+
+.timeline-header-badge {
   background-color: var(--color-ink);
   color: var(--color-paper-light);
-  padding: 2px 6px;
-  border-radius: 2px;
+  font-family: var(--font-technical);
+  font-size: 0.8rem;
+  font-weight: 800;
+  padding: 4px 10px;
+  display: inline-block;
+  margin-bottom: var(--space-xl);
+  letter-spacing: 1px;
+}
+
+/* Timeline Nodes */
+.timeline-nodes-wrapper {
+  position: relative;
+  padding-left: 42px;
+  margin-bottom: var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.timeline-nodes-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 15px;
+  bottom: 15px;
+  left: 14px;
+  width: 2px;
+  background-color: var(--color-ink);
+}
+
+.timeline-node-item {
+  position: relative;
+  display: flex;
+  gap: var(--space-md);
+  align-items: flex-start;
+}
+
+.timeline-node-dot {
+  position: absolute;
+  left: -42px;
+  top: -2px;
+  width: 30px;
+  height: 30px;
+  background-color: var(--color-paper-light);
+  border: var(--border-medium);
+  box-shadow: 2px 2px 0 var(--color-ink);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  color: var(--color-comic-red);
+  z-index: 2;
+  transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+}
+
+.timeline-node-item:hover .timeline-node-dot {
+  transform: scale(1.2);
+  background-color: var(--color-comic-red);
+  color: #FFFFFF;
+}
+
+.timeline-node-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.timeline-year {
+  font-family: var(--font-technical);
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: var(--color-comic-red);
   letter-spacing: 0.5px;
 }
 
-.chapter-title-row {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 6px;
-}
-
-.chapter-icon {
-  font-size: 1.1rem;
-  color: var(--color-tech-blue);
-  display: flex;
-  align-items: center;
-}
-
-.chapter-title {
+.timeline-event-title {
   font-family: var(--font-heading);
   font-size: 0.95rem;
   font-weight: 800;
   color: var(--color-ink);
   margin: 0;
-  line-height: 1.2;
+  line-height: 1.25;
 }
 
-.chapter-desc {
+.timeline-event-desc {
   font-family: var(--font-body);
   font-size: 0.85rem;
   font-weight: 500;
@@ -168,168 +316,253 @@
   line-height: 1.4;
 }
 
-/* Philosophy Dossier Card */
-.philosophy-card {
-  background-color: var(--color-signal-yellow);
-  border: var(--border-heavy);
-  box-shadow: var(--shadow-comic-md);
-  padding: var(--space-md) var(--space-lg);
-  width: 100%;
-  transform: rotate(-0.8deg);
-  transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-.philosophy-card:hover {
-  transform: rotate(0deg) scale(1.02);
-}
-
-.philosophy-header {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 6px;
-}
-
-.quote-icon {
-  font-size: 1.1rem;
-  color: var(--color-ink);
-}
-
-.philosophy-label {
+.timeline-footer-link {
+  margin-top: auto;
   font-family: var(--font-technical);
   font-size: 0.85rem;
   font-weight: 800;
+  color: var(--color-comic-red);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  letter-spacing: 0.5px;
+  transition: transform 0.2s ease;
+}
+
+.timeline-footer-link:hover {
+  transform: translateX(4px);
+  color: var(--color-ink);
+}
+
+/* ==========================================================================
+   Column 3: QUOTE & AT A GLANCE
+   ========================================================================== */
+.about-right-col {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+}
+
+/* Yellow Quote Card */
+.yellow-quote-dossier {
+  background-color: var(--color-signal-yellow);
+  border: var(--border-heavy);
+  box-shadow: var(--shadow-comic-md);
+  padding: var(--space-xl);
+  position: relative;
+  overflow: hidden;
+  transform: rotate(-1deg);
+  transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.25s ease;
+}
+
+.quote-dot-texture {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 140px;
+  height: auto;
+  opacity: 0.35;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.yellow-quote-dossier:hover {
+  transform: rotate(0deg) scale(1.02);
+  box-shadow: var(--shadow-comic-lg);
+}
+
+.quote-mark-lg {
+  font-family: var(--font-display);
+  font-size: 3.5rem;
+  color: var(--color-ink);
+  line-height: 0.5;
+  display: block;
+  margin-bottom: var(--space-xs);
+  position: relative;
+  z-index: 2;
+}
+
+.quote-body-text {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--color-ink);
+  line-height: 1.45;
+  margin: 0 0 var(--space-md) 0;
+  position: relative;
+  z-index: 2;
+}
+
+.quote-author-name {
+  font-family: var(--font-comic);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--color-ink);
+  display: block;
+  text-align: right;
+  position: relative;
+  z-index: 2;
+}
+
+/* At A Glance Card */
+.at-a-glance-card {
+  background-color: var(--color-paper);
+  border: var(--border-heavy);
+  box-shadow: var(--shadow-comic-md);
+  padding: var(--space-lg);
+  transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.25s ease;
+}
+
+.at-a-glance-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-comic-lg);
+}
+
+.at-a-glance-label {
+  font-family: var(--font-technical);
+  font-size: 0.8rem;
+  font-weight: 800;
   color: var(--color-ink);
   letter-spacing: 1px;
+  margin-bottom: var(--space-md);
+  padding-bottom: var(--space-xs);
+  border-bottom: 2px solid var(--color-ink);
 }
 
-.philosophy-text {
-  font-family: var(--font-body);
-  font-size: 1.05rem;
-  font-weight: 600;
-  color: var(--color-ink);
-  margin: 0;
-  line-height: 1.4;
+.glance-stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
 }
 
-/* --------------------------------------------------------------------------
-   Right Column — Research Art & Speech Bubble
-   -------------------------------------------------------------------------- */
-.about-art-column {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-}
-
-.about-art-wrapper {
-  position: relative;
-  width: 100%;
-  max-width: 440px;
+.stat-cell {
+  background-color: var(--color-paper-light);
+  border: var(--border-medium);
+  padding: var(--space-sm) var(--space-md);
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* Research Art Comic Frame */
-.research-art-frame {
-  background-color: var(--color-paper-light);
-  border: var(--border-heavy);
-  box-shadow: var(--shadow-comic-lg);
-  padding: 8px;
-  transform: rotate(1.5deg);
-  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  width: 100%;
-  overflow: hidden;
+.stat-cell:hover {
+  transform: translateY(-2px);
+  box-shadow: 2px 2px 0 var(--color-ink);
+  background-color: var(--color-paper);
 }
 
-.research-art-frame:hover {
-  transform: rotate(0deg) scale(1.03);
+.stat-number {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  color: var(--color-comic-red);
+  line-height: 1;
+  margin-bottom: 2px;
 }
 
-.about-research-img {
-  width: 100%;
-  height: auto;
-  display: block;
-  object-fit: cover;
+.stat-name {
+  font-family: var(--font-technical);
+  font-size: 0.65rem;
+  font-weight: 800;
+  color: var(--color-ink-light);
+  letter-spacing: 0.5px;
 }
 
-/* Speech Bubble Positioning */
-.about-speech-bubble {
-  position: absolute;
-  top: 15px;
-  left: -20px;
-  background-color: var(--color-paper-light);
+/* Core Specializations Card */
+.specializations-card {
+  background-color: var(--color-paper);
   border: var(--border-heavy);
   box-shadow: var(--shadow-comic-md);
-  padding: 10px 16px;
-  border-radius: 16px;
-  z-index: 15;
+  padding: var(--space-lg);
+  transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.25s ease;
+}
+
+.specializations-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-comic-lg);
+}
+
+.specializations-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-xs);
+}
+
+.spec-pill {
+  background-color: var(--color-paper-light);
+  border: var(--border-medium);
+  box-shadow: 2px 2px 0 var(--color-ink);
+  padding: 8px 10px;
+  font-family: var(--font-technical);
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: var(--color-ink);
   display: flex;
   align-items: center;
   gap: 6px;
-  transform: rotate(-3deg);
-  transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  letter-spacing: 0.5px;
+  transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+  cursor: pointer;
 }
 
-.about-speech-bubble:hover {
-  transform: rotate(0deg) scale(1.05);
+.spec-pill:hover {
+  transform: translateY(-2px) scale(1.03);
+  background-color: var(--color-ink);
+  color: var(--color-paper-light);
 }
 
-.about-speech-bubble::after {
-  content: '';
-  position: absolute;
-  right: -12px;
-  top: 50%;
-  transform: translateY(-50%);
-  border-top: 6px solid transparent;
-  border-bottom: 6px solid transparent;
-  border-left: 12px solid var(--color-ink);
+.spec-pill .spec-icon {
+  color: var(--color-comic-red);
+  font-size: 0.85rem;
+  transition: color 0.2s ease;
 }
 
-.research-badge {
-  position: absolute;
-  bottom: -15px;
-  right: -10px;
-  background-color: var(--color-comic-red);
-  color: #FFFFFF;
-  border: var(--border-heavy);
-  box-shadow: 3px 3px 0 var(--color-ink);
-  padding: 4px 12px;
-  transform: rotate(-2deg);
-  z-index: 15;
-}
-
-.research-badge span {
-  font-family: var(--font-technical);
-  font-size: 0.75rem;
-  font-weight: 800;
-  letter-spacing: 1px;
+.spec-pill:hover .spec-icon {
+  color: var(--color-signal-yellow);
 }
 
 /* --------------------------------------------------------------------------
    Mobile Responsiveness
    -------------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  .about-three-column-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Iron Man Comic Accent */
+.ironman-accent-img {
+  position: absolute;
+  bottom: -102px;
+  right: 65px;
+  width: 200px;
+  height: auto;
+  z-index: 10;
+  filter: drop-shadow(3px 3px 0px var(--color-ink));
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), filter 0.3s ease;
+}
+/* 
+.ironman-accent-img:hover {
+  transform: translateY(-10px) scale(1.12) rotate(2deg);
+  filter: drop-shadow(5px 5px 0px var(--color-ink)) drop-shadow(0 0 16px rgba(244, 197, 66, 0.85));
+} */
+
 @media (max-width: 900px) {
-  .about-container {
-    grid-template-columns: 1fr;
+  .ironman-accent-img {
+    width: 130px;
+    bottom: -55px;
+    right: 15px;
+    filter: drop-shadow(2px 2px 0px var(--color-ink));
   }
+}
 
-  .journey-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .about-art-column {
-    margin-top: var(--space-xl);
-  }
-
-  .about-speech-bubble {
-    left: 50%;
-    transform: translateX(-50%);
-    top: -25px;
-  }
-
-  .about-speech-bubble::after {
-    display: none;
+@media (max-width: 480px) {
+  .ironman-accent-img {
+    width: 100px;
+    bottom: -40px;
+    right: 10px;
   }
 }

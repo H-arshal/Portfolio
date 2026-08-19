@@ -4,7 +4,7 @@ import { ComicPanel } from './comic/ComicPanel';
 import { IssueLabel } from './comic/IssueLabel';
 import { ComicButton } from './comic/ComicButton';
 import '../styles/ContactMe.css';
-import contactImg from '../assets/tower-building.png'; // decorative image
+
 
 const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
 const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
@@ -82,7 +82,6 @@ function ContactMe() {
                     <p className="text-body" style={{maxWidth: '400px', marginTop: '1rem'}}>
                         Have a project in mind, or just want to connect? Send a secure transmission and I'll respond shortly.
                     </p>
-                    <img src={contactImg} alt="City Tower" className="contact-decor-img" />
                 </div>
 
                 <ComicPanel className="contact-panel">
