@@ -1,0 +1,120 @@
+.contact-section {
+  padding: calc(var(--space-2xl) + 40px) var(--space-xl);
+  background-color: var(--color-paper);
+  position: relative;
+}
+
+.contact-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: var(--space-2xl);
+  align-items: center;
+}
+
+.contact-header {
+  position: relative;
+}
+
+.contact-decor-img {
+  max-width: 80%;
+  margin-top: var(--space-xl);
+  filter: drop-shadow(4px 4px 0px rgba(21,21,21,0.1));
+}
+
+.contact-panel {
+  width: 100%;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.comic-input {
+  width: 100%;
+  background: var(--color-paper-light);
+  border: var(--border-medium);
+  padding: 12px;
+  border-radius: var(--radius-sm);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  transition: all 0.2s ease;
+  resize: vertical;
+}
+
+.comic-input:focus {
+  outline: none;
+  border-color: var(--color-comic-red);
+  box-shadow: 2px 2px 0px var(--color-comic-red);
+}
+
+/* Toast */
+.comic-toast {
+  position: fixed;
+  top: 100px;
+  right: var(--space-xl);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  padding: var(--space-md) var(--space-lg);
+  border: var(--border-medium);
+  box-shadow: var(--shadow-comic-md);
+  animation: toastSlideIn 0.3s ease-out;
+  background: var(--color-paper);
+}
+
+.comic-toast-success {
+  border-color: #059669;
+  box-shadow: 4px 4px 0px #059669;
+}
+
+.comic-toast-error {
+  border-color: var(--color-comic-red);
+  box-shadow: 4px 4px 0px var(--color-comic-red);
+}
+
+.comic-toast-info {
+  border-color: var(--color-tech-blue);
+  box-shadow: 4px 4px 0px var(--color-tech-blue);
+}
+
+@keyframes toastSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@media (max-width: 900px) {
+  .contact-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .contact-decor-img {
+    display: none;
+  }
+  
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}

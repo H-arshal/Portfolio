@@ -1,0 +1,281 @@
+/* ==========================================================================
+   Section 02: My Arsenal / Superpowers (18-VISUAL-COMPONENT-SYSTEM.md Spec)
+   ========================================================================== */
+
+.devstack-section {
+  padding: calc(var(--space-2xl) + 40px) var(--space-xl);
+  background-color: var(--color-paper-light);
+  background-image: var(--halftone-bg);
+  background-size: var(--halftone-size);
+  position: relative;
+  border-top: var(--border-heavy);
+  border-bottom: var(--border-heavy);
+}
+
+/* Spider-Man Hanging Upside Down from Section Separator Border */
+.spiderman-hanging-img {
+  position: absolute;
+  top: -30px;
+  right: 12%;
+  width: 340px;
+  height: auto;
+  z-index: 15;
+  mix-blend-mode: multiply;
+  pointer-events: auto;
+} 
+
+.devstack-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* --------------------------------------------------------------------------
+   Header & Title
+   -------------------------------------------------------------------------- */
+.devstack-header {
+  margin-bottom: var(--space-2xl);
+  max-width: 650px;
+}
+
+.devstack-issue-group {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-sm);
+  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.devstack-issue-group:hover {
+  transform: scale(1.04) rotate(-1deg);
+}
+
+.devstack-origin-label {
+  font-family: var(--font-technical);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-ink-light);
+  letter-spacing: 1px;
+}
+
+.devstack-title {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 6.5vw, 5rem);
+  color: var(--color-ink);
+  letter-spacing: -1px;
+  margin: var(--space-xs) 0 var(--space-sm) 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3em;
+  line-height: 1;
+}
+
+.word-wrap {
+  display: inline-flex;
+  white-space: nowrap;
+}
+
+.devstack-title .hover-letter {
+  display: inline-block;
+  transition: transform 0.22s cubic-bezier(0.175, 0.885, 0.32, 1.275), color 0.2s ease, text-shadow 0.2s ease;
+  cursor: pointer;
+  user-select: none;
+}
+
+.devstack-title .hover-letter:hover {
+  transform: translateY(-8px) scale(1.15) rotate(-3deg);
+  color: var(--color-comic-red);
+  text-shadow: 4px 4px 0 var(--color-ink);
+}
+
+.devstack-subtitle {
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-ink-light);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   3-Column Capability Grid
+   -------------------------------------------------------------------------- */
+.devstack-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: var(--space-xl);
+  position: relative;
+  z-index: 2;
+  margin-bottom: var(--space-2xl);
+}
+
+.devstack-card {
+  background-color: var(--color-paper);
+  border: var(--border-heavy);
+  box-shadow: var(--shadow-comic-md);
+  padding: var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.25s ease;
+}
+
+.devstack-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-comic-lg);
+}
+
+.devstack-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-md);
+}
+
+.stack-badge {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-technical);
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 4px 10px;
+  border: var(--border-medium);
+  box-shadow: 2px 2px 0 var(--color-ink);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.badge-icon-span {
+  display: inline-flex;
+  align-items: center;
+  margin-right: 6px;
+  font-size: 0.85rem;
+}
+
+.stack-badge.yellow-badge {
+  background-color: var(--color-signal-yellow);
+  color: var(--color-ink);
+}
+
+.stack-badge.blue-badge {
+  background-color: var(--color-tech-blue);
+  color: #FFFFFF;
+}
+
+.stack-badge.red-badge {
+  background-color: var(--color-comic-red);
+  color: #FFFFFF;
+}
+
+.stack-icon-wrapper {
+  font-size: 1.6rem;
+  color: var(--color-ink);
+}
+
+.stack-card-title {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--color-ink);
+  margin: 0 0 var(--space-md) 0;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+/* Tech Skill Pills */
+.skill-tags-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  margin-top: auto;
+}
+
+.arsenal-skill-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-technical);
+  font-size: 0.85rem;
+  font-weight: 700;
+  background-color: var(--color-paper-light);
+  color: var(--color-ink);
+  padding: 6px 12px;
+  border: var(--border-medium);
+  box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.15);
+  transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: default;
+}
+
+.arsenal-skill-badge:hover {
+  background-color: var(--color-ink);
+  color: var(--color-paper-light);
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 3px 3px 0 var(--color-comic-red);
+}
+
+.skill-icon-span {
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+}
+
+/* --------------------------------------------------------------------------
+   Technical Status Bar
+   -------------------------------------------------------------------------- */
+.devstack-status-bar {
+  background-color: var(--color-paper);
+  border: var(--border-heavy);
+  box-shadow: var(--shadow-comic-sm);
+  padding: var(--space-md) var(--space-lg);
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  max-width: 600px;
+  font-family: var(--font-technical);
+}
+
+.status-label {
+  font-weight: 800;
+  color: var(--color-comic-red);
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+}
+
+.status-value {
+  font-weight: 700;
+  color: var(--color-ink);
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 900px) {
+  .spiderman-hanging-img {
+    width: 220px;
+    top: -20px;
+    right: 5%;
+  }
+
+  .devstack-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .devstack-status-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+}
+
+@media (max-width: 600px) {
+  .devstack-title {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .spiderman-hanging-img {
+    width: 150px;
+    top: -12px;
+    right: 10px;
+  }
+}

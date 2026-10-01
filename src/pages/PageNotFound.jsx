@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import '../stylesheet/PageNotFound.css';
+import '../styles/PageNotFound.css';
 
 const NotFoundPage = () => {
   const torchRef = useRef(null);

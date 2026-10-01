@@ -1,5 +1,7 @@
 import React from 'react';
-import '../stylesheet/Certificates.css';
+import { ComicPanel } from './comic/ComicPanel';
+import { IssueLabel } from './comic/IssueLabel';
+import '../styles/Certificates.css';
 
 import img1 from '../images/certificates/HML_CSS_Advance.jpg';
 import img4 from '../images/certificates/IBM_CC0101EN.jpg';
@@ -21,19 +23,29 @@ function Certificate() {
     ];
 
     return (
-        <section className="certificates-section">
-            <h2 className="certificates-heading">My <span>Certificates</span></h2>
-            <div className="certificates-grid">
-                {certs.map((cert, idx) => (
-                    <div className="certificate-card" key={idx}>
-                        <div className="certificate-image-wrapper">
-                            <img src={cert.img} alt={cert.title} loading="lazy" />
-                        </div>
-                        <div className="certificate-info">
-                            <h3 className="certificate-title">{cert.title}</h3>
-                        </div>
-                    </div>
-                ))}
+        <section className="certificates-section" id="certificates">
+            <div className="certificates-container">
+                <div className="certificates-header">
+                    <IssueLabel issue="ISSUE #006" title="ACHIEVEMENT WALL" />
+                    <h2 className="text-display" style={{fontSize: 'clamp(2.5rem, 5vw, 4rem)'}}>CERTIFICATIONS</h2>
+                </div>
+                
+                <div className="comic-certs-grid">
+                    {certs.map((cert, idx) => (
+                        <ComicPanel 
+                            key={idx} 
+                            irregular={idx % 2 === 0} 
+                            className="comic-cert-card"
+                        >
+                            <div className="cert-image-wrapper">
+                                <img src={cert.img} alt={cert.title} loading="lazy" />
+                            </div>
+                            <div className="cert-info">
+                                <h3 className="text-body text-bold" style={{textTransform: 'uppercase'}}>{cert.title}</h3>
+                            </div>
+                        </ComicPanel>
+                    ))}
+                </div>
             </div>
         </section>
     );
