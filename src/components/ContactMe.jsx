@@ -79,9 +79,14 @@ function ContactMe() {
                 <div className="contact-header">
                     <IssueLabel issue="ISSUE #007" title="NEXT CHAPTER" />
                     <h2 className="text-display" style={{fontSize: 'clamp(2.5rem, 5vw, 4rem)'}}>TRANSMISSION</h2>
-                    <p className="text-body" style={{maxWidth: '400px', marginTop: '1rem'}}>
+                    <p className="text-body" style={{maxWidth: '400px', margin: '1rem 0'}}>
                         Have a project in mind, or just want to connect? Send a secure transmission and I'll respond shortly.
                     </p>
+                    <div className="contact-illustration-wrapper">
+                      <div className="comic-speech-bubble" style={{position: 'absolute', top: '20px', right: '10%', padding: '10px 15px', background: '#fff', border: '2px solid #111', borderRadius: '20px', boxShadow: '4px 4px 0 #111', fontFamily: 'var(--font-technical)', fontSize: '0.85rem', fontWeight: 'bold', transform: 'rotate(2deg)'}}>
+                        "Let's build something."
+                      </div>
+                    </div>
                 </div>
 
                 <ComicPanel className="contact-panel">

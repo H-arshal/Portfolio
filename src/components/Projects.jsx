@@ -39,10 +39,10 @@ function Projects() {
           {productsList.map((product, index) => (
             <ComicPanel 
               key={index} 
-              irregular={index % 3 === 0} 
               className="comic-grid-item" 
               onClick={() => openDetails(product)}
             >
+              <div className="project-file-label">PROJECT FILE #00{index + 1}</div>
               <div className="project-thumbnail-comic">
                 {product.videoSrc && product.videoSrc.endsWith('.mp4') ? (
                   <video autoPlay muted loop playsInline

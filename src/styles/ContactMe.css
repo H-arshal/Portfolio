@@ -1,6 +1,8 @@
 .contact-section {
   padding: calc(var(--space-2xl) + 40px) var(--space-xl);
   background-color: var(--color-paper);
+  background-image: var(--halftone-bg);
+  background-size: var(--halftone-size);
   position: relative;
 }
 
@@ -17,9 +19,15 @@
   position: relative;
 }
 
+.contact-illustration-wrapper {
+  position: relative;
+  margin-top: var(--space-xl);
+  display: flex;
+  justify-content: flex-start;
+}
+
 .contact-decor-img {
   max-width: 80%;
-  margin-top: var(--space-xl);
   filter: drop-shadow(4px 4px 0px rgba(21,21,21,0.1));
 }
 

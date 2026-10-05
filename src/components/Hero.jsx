@@ -7,7 +7,7 @@ import heroCharacter from '../assets/hero/hero.png';
 import blackPaintStain from '../assets/black-paint-stain.png';
 import artTower from '../assets/art-tower.png';
 import edgePart from '../assets/edge-part.png';
-import resumePdf from '../resume/Harshal_Dev.pdf'; 
+import resumePdf from '../resume/Resume.pdf';
 
 function Hero() {
   const scrollToProjects = () => {

@@ -1,6 +1,8 @@
 .certificates-section {
   padding: calc(var(--space-2xl) + 40px) var(--space-xl);
   background-color: var(--color-paper-light);
+  background-image: var(--halftone-bg);
+  background-size: var(--halftone-size);
   border-bottom: var(--border-heavy);
 }
 
@@ -25,6 +27,23 @@
   flex-direction: column;
   padding: var(--space-md);
   gap: var(--space-md);
+  position: relative;
+}
+
+.cert-archive-label {
+  position: absolute;
+  top: -12px;
+  left: 16px;
+  background-color: var(--color-signal-yellow);
+  color: var(--color-ink);
+  font-family: var(--font-technical);
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 2px 8px;
+  border: var(--border-medium);
+  box-shadow: 2px 2px 0 var(--color-ink);
+  letter-spacing: 0.5px;
+  z-index: 5;
 }
 
 .cert-image-wrapper {

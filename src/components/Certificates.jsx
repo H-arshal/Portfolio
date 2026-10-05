@@ -34,9 +34,9 @@ function Certificate() {
                     {certs.map((cert, idx) => (
                         <ComicPanel 
                             key={idx} 
-                            irregular={idx % 2 === 0} 
                             className="comic-cert-card"
                         >
+                            <div className="cert-archive-label">CERTIFICATE ARCHIVE [{String(idx + 1).padStart(2, '0')}]</div>
                             <div className="cert-image-wrapper">
                                 <img src={cert.img} alt={cert.title} loading="lazy" />
                             </div>
