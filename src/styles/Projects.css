@@ -1,6 +1,9 @@
 .projects-section {
   padding: calc(var(--space-2xl) + 40px) var(--space-xl);
   background-color: var(--color-paper);
+  background-image: var(--halftone-bg);
+  background-size: var(--halftone-size);
+  border-bottom: var(--border-heavy);
 }
 
 .projects-container {
@@ -25,6 +28,21 @@
   flex-direction: column;
   padding: 0 !important;
   overflow: hidden;
+  position: relative;
+}
+
+.project-file-label {
+  background-color: var(--color-ink);
+  color: var(--color-paper-light);
+  font-family: var(--font-technical);
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 4px 12px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  letter-spacing: 1px;
 }
 
 .project-thumbnail-comic {

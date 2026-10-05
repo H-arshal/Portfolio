@@ -16,7 +16,7 @@ import {
 import '../styles/About.css';
 import dotTexture from '../assets/dot.png';
 import ironMan from '../assets/about/iron-man.png';
-import resumePdf from '../resume/Harshal_Dev.pdf';
+import resumePdf from '../resume/Resume.pdf';
 
 function WhoAmI() {
   // Timeline in Reverse Chronological Order (Most Recent at Top)

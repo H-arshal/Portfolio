@@ -19,7 +19,7 @@ import {
   FaArrowRightLong
 } from 'react-icons/fa6';
 import '../styles/Resume.css';
-import pdfUrl from '../resume/Harshal_Dev.pdf';
+import pdfUrl from '../resume/Resume.pdf';
 
 function MyResume() {
   const openLink = (url) => {
